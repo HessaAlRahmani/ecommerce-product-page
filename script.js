@@ -1,6 +1,8 @@
-lightbox.option({
-  alwaysShowNavOnTouchDevices: true,
-});
+// lightbox.option({
+//   alwaysShowNavOnTouchDevices: true,
+// });
+
+var qcounter = 0;
 
 function openNav() {
   document.getElementById("myCart").style.width = "350px";
@@ -18,20 +20,19 @@ function closeNav() {
 //   updateCartTotal();
 // }
 
-var qcounter = 0;
 function quantityChangedPlus() {
   qcounter++;
-  document.getElementsById("qCounterText").innerHTML = qcounter;
+  document.getElementById("qCounterText").innerHTML = qcounter;
 }
 
 function quantityChangedMinus() {
   if (
     isNaN(document.getElementById("qCounterText")).innerHTML ||
-    document.getElementsById("qCounterText").innerHTML < 0
+    document.getElementById("qCounterText").innerHTML < 0
   )
     qcounter = 0;
   else qcounter--;
-  document.getElementsById("qCounterText").innerHTML = qcounter;
+  document.getElementById("qCounterText").innerHTML = qcounter;
 }
 
 function addToCart() {
@@ -44,7 +45,7 @@ function addToCart() {
         <div class="cart-item cart-column">
         <img class="cart-item-image" src="./images/image-product-1-thumbnail.jpg" width="100" height="100">
         <p class="cart-item-title">Fall Limited Edition Sneakers</p>
-        <p class="cart-price">$125</p>
+        <p class="cart-price">${qcounter} x $125</p>
         </div>
 
         <div class="cart-quantity cart-column">
@@ -71,10 +72,12 @@ function updateCartTotal() {
   for (let i = 0; i < cartRows.length; i++) {
     var cartRow = cartRows[i];
     var priceElement = cartRow.getElementsByClassName("cart-price")[0];
-    var price = parseFloat(priceElement.innerText.replace("$", ""));
-    total = total + price;
+    var counter = parseInt(document.getElementById("qCounterText").innerHTML);
+    total = total + 125 * qcounter;
   }
   total = Math.round(total * 100) / 100;
   document.getElementsByClassName("cart-total-price")[0].innerHTML =
     "$" + total;
 }
+
+//SG.LmHG1hKLSI-J1iXcIhFlpA.y0asL63m-ItClK1whlOAJttY8QAmuemXGbKbm8XsIMM
