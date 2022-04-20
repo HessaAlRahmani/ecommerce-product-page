@@ -79,5 +79,3 @@ function updateCartTotal() {
   document.getElementsByClassName("cart-total-price")[0].innerHTML =
     "$" + total;
 }
-
-//SG.LmHG1hKLSI-J1iXcIhFlpA.y0asL63m-ItClK1whlOAJttY8QAmuemXGbKbm8XsIMM
